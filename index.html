@@ -2,23 +2,29 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="./favicon.png" />
+		<link rel="icon" href="./knn.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<link rel="modulepreload" href="./_app/immutable/entry/start.C6Of22zx.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/entry.Btz0esx5.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.BvLojk_z.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.CtjWB9xD.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.CFUezsYx.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.CRvnb44t.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.BY9o5AAq.js">
+		<link href="./_app/immutable/assets/2.DFkDDlm_.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.K1g878rk.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.BK3tW5na.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.B2bXgY5_.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.CXiIo0FT.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.MVhVbCkR.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.CJ90hTjU.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.BhRjNj7s.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">  <h1 data-svelte-h="svelte-yyjjjs">Welcome to SvelteKit</h1> <p data-svelte-h="svelte-jl9sbz">Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p> 
+		<div style="display: contents">   <svelte-scroller-outer class="svelte-xdbafy"><svelte-scroller-background-container class="background-container svelte-xdbafy" style="
+		position: absolute;
+		top: 0;
+		transform: translate(0, 0px);
+		z-index: 1;
+	"><svelte-scroller-background class="svelte-xdbafy"><nav slot="background" class="svelte-p6hggf"><h1 class="svelte-p6hggf" data-svelte-h="svelte-lscjzr">Visualizing Classification: <br> K-Nearest-Neighbors</h1> <progress value="0" style="width: 21vw; margin: 0 0.5vw;"></progress> <ul class="svelte-p6hggf"><li style="transform: translateY(-0vh); font-weight: 600; font-size: 1.6vw;" class="svelte-p6hggf">What is KNN?</li> <li class="svelte-p6hggf" data-svelte-h="svelte-b4f71x">Modeling</li> <li class="svelte-p6hggf" data-svelte-h="svelte-ndj512">Cryptocurrency Classes</li> <li class="svelte-p6hggf" data-svelte-h="svelte-1xiggdk">KNN in Action</li> <li class="svelte-p6hggf" data-svelte-h="svelte-vhbwwh">Demonstration</li></ul></nav></svelte-scroller-background></svelte-scroller-background-container> <svelte-scroller-foreground class="svelte-xdbafy"><div slot="foreground" class="svelte-p6hggf" data-svelte-h="svelte-17mx4w4"><section class="svelte-p6hggf"><h1 class="svelte-p6hggf">What is KNN?</h1> <p>KNN, or K-Nearest-Neighbors, is a classification machine learning model.</p></section> <section class="svelte-p6hggf"><h1 class="svelte-p6hggf">Modeling</h1></section> <section class="svelte-p6hggf"><h1 class="svelte-p6hggf">Cryptocurrency Classes</h1></section> <section class="svelte-p6hggf"><h1 class="svelte-p6hggf">KNN In Action</h1></section> <section class="svelte-p6hggf"><h1 class="svelte-p6hggf">Demonstration</h1></section></div></svelte-scroller-foreground> </svelte-scroller-outer> 
 			
 			<script>
 				{
-					__sveltekit_1heqtss = {
+					__sveltekit_1xtzy2g = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/sveltekit-github-pages"
 					};
@@ -28,8 +34,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.C6Of22zx.js"),
-						import("./_app/immutable/entry/app.CtjWB9xD.js")
+						import("./_app/immutable/entry/start.K1g878rk.js"),
+						import("./_app/immutable/entry/app.CXiIo0FT.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
@@ -43,3 +49,9 @@
 		</div>
 	</body>
 </html>
+
+<style>
+	body {
+		margin: 0px;
+	}
+</style>
