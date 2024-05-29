@@ -1,5 +1,7 @@
 <script>
 // @ts-nocheck
+    import CoinGraphs from "./CoinGraphs.svelte";
+
     import Scroller from "@sveltejs/svelte-scroller";
     let count, index, offset, progress;
     let top = 0; 
@@ -23,7 +25,7 @@
             value={progress || 0}
             style="width: 21vw; margin: 0 0.5vw;"
         />
-        <ul>
+        <ol>
             {#if index == 0}
             <li style="transform: translateY(-{offset*37}vh); font-weight: 600; font-size: 1.6vw;">
                 What is KNN?
@@ -85,26 +87,27 @@
                 Demonstration
             </li>
             {/if}
-        </ul>
+        </ol>
     </nav>
     <div slot="foreground">
         <section>
-            <h1>What is KNN?</h1>
+            <h1>I. What is KNN?</h1>
             <p>
                 KNN, or K-Nearest-Neighbors, is a classification machine learning model.
             </p>
         </section>
         <section>
-            <h1>Modeling</h1>
+            <h1>II. Modeling</h1>
         </section>
         <section>
-            <h1>Cryptocurrency Classes</h1>
+            <h1>III. Cryptocurrency Classes</h1>
+            <CoinGraphs />
         </section>
         <section>
-            <h1>KNN In Action</h1>
+            <h1>IV. KNN In Action</h1>
         </section>
         <section>
-            <h1>Demonstration</h1>
+            <h1>V. Demonstration</h1>
         </section>
     </div>
 </Scroller>
@@ -121,16 +124,16 @@
         font-size: 1.95vw;
     }
 
-    ul {
+    ol {
         display: flex;
         flex-direction: column;
 
-        list-style-type: circle;
+        list-style-type: upper-roman;
         padding: 0 auto;
         margin: 35vh 0 0 0;
     }
 
-    ul li {
+    ol li {
         margin: 6vh 0 0 0;
 
         font-size: 1.3vw;
