@@ -1,40 +1,31 @@
 <script>
 // @ts-nocheck
 
-    import { onMount } from 'svelte';
     import * as d3 from 'd3';
+    import { onMount } from 'svelte';
     import { writable } from 'svelte/store';
+    import coin_data from './data/coin_data.json';
+    import { browser } from '$app/environment';
   
-    let data = {};
+    let data = coin_data;
     let formattedData = [];
     const selectedColumns = writable({});
     const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
   
-    // Load data from the local JSON file
-    onMount(async () => {
-        try {
-            const response = await fetch('/data/coin_data.json');
-            if (!response.ok) {
-            throw new Error('Network response was not ok');
-            }
-            const jsonData = await response.json();
-            console.log('Fetched data:', jsonData);
-            data = jsonData;
-    
-            // Initialize selectedColumns store
+    if (browser) {
+        // Initialize selectedColumns store and format data
+        onMount(() => {
             const initialSelection = {};
             Object.keys(data).forEach((key, index) => {
-            initialSelection[key] = true;
-            colorScale.domain(Object.keys(data));
+                initialSelection[key] = true;
+                colorScale.domain(Object.keys(data));
             });
             selectedColumns.set(initialSelection);
-    
+
             formatData();
             createChart();
-        } catch (error) {
-            console.error('Fetch error:', error);
-        }
-    });
+        });
+    }
   
     function formatData() {
         formattedData = Object.keys(data).map(column => {
@@ -48,7 +39,9 @@
         });
     }
   
-    $: updateChart($selectedColumns);
+    $: if (browser) {
+        updateChart($selectedColumns);
+    }
   
     function createChart() {
         // Set the dimensions and margins of the graph
@@ -115,12 +108,14 @@
 <div id="chart"></div>
 
 <div>
-    {#each Object.keys($selectedColumns) as column}
-        <label>
-            <input type="checkbox" bind:checked={$selectedColumns[column]} />
-            {column}
-        </label>
-    {/each}
+    {#if browser}
+        {#each Object.keys($selectedColumns) as column}
+            <label>
+                <input type="checkbox" bind:checked={$selectedColumns[column]} />
+                {column}
+            </label>
+        {/each}
+    {/if}
 </div>  
 
 <style>
