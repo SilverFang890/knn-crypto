@@ -7,7 +7,7 @@
     let threshold = 0.5;
     let bottom = 1;
 
-    import Simple_knn from "./images/simple_knn.png";
+    import Simple_knn from "/images/simple_knn.png";
     import CoinGraphs from "./CoinGraphs.svelte";
 
 </script>
