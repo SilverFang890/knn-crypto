@@ -7,7 +7,6 @@
     let threshold = 0.5;
     let bottom = 1;
 
-    import Simple_knn from "/images/simple_knn.png";
     import CoinGraphs from "./CoinGraphs.svelte";
 
 </script>
@@ -99,7 +98,7 @@
                 know. Similarly KNN takes a new data point and classifies it by comparing it to the classes of 
                 <i>K</i> most similar data.
             </p>
-            <img src={Simple_knn} alt="simple knn example"/>
+            <img src={"/images/simple_knn.png"} alt="simple knn example"/>
             <p>
                 I was preparing for a presentation on how machine learning and AI works when I decided 
                 to explain the KNN, K-Nearest-Neighbors, machine learning model. It's an interesting model
