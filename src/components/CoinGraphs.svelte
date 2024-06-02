@@ -6,42 +6,46 @@
     import { writable } from 'svelte/store';
     import coin_data from './data/coin_data.json';
     import { browser } from '$app/environment';
-  
+    
     let data = coin_data;
     let formattedData = [];
     const selectedColumns = writable({});
     const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
+    // Store column colors
+    let columnColors = {};
+
     // Set initial dimensions
     let width;
     let height;
     const margin = { top: 20, right: 0, bottom: 20, left: 40 };
-  
+    let tooltip;
+    
     if (browser) {
         // Initialize selectedColumns store and format data
         onMount(() => {
             const initialSelection = {};
             Object.keys(data).forEach((key, index) => {
                 initialSelection[key] = true;
-                colorScale.domain(Object.keys(data));
+                columnColors[key] = colorScale(key);
             });
             selectedColumns.set(initialSelection);
 
             formatData();
-            updateDiemensions();
+            updateDimensions();
             createChart();
 
             // Add event listener for window resize
             window.addEventListener('resize', handleResize);
         });
 
-        // Remove event listener on component destory
+        // Remove event listener on component destroy
         onDestroy(() => {
             window.removeEventListener('resize', handleResize);
         });
     }
 
-    function updateDiemensions() {
+    function updateDimensions() {
         width = window.innerWidth * 0.46;
         height = window.innerWidth * 0.4;
 
@@ -51,10 +55,10 @@
     }
 
     function handleResize() {
-        updateDiemensions();
+        updateDimensions();
         updateChart($selectedColumns);
     }
-  
+    
     function formatData() {
         formattedData = Object.keys(data).map(column => {
             return {
@@ -66,11 +70,11 @@
             };
         });
     }
-  
+    
     $: if (browser) {
         updateChart($selectedColumns);
     }
-  
+    
     function createChart() {
         const svg = d3.select('#chart')
             .append('svg')
@@ -81,8 +85,23 @@
     
         svg.append('g').attr('class', 'x-axis').attr('transform', `translate(0,${height - margin.top - margin.bottom})`);
         svg.append('g').attr('class', 'y-axis');
+
+        tooltip = d3.select('#chart')
+            .append('div')
+                .attr('class', 'tooltip')
+                .style('opacity', 0)
+                .style('position', 'absolute')
+                .style('text-align', 'center')
+                .style('width', 'fit-content')
+                .style('height', 'fit-content')
+                .style('padding', '0.6vw')
+                .style('font', '1.2vw sans-serif')
+                .style('color', 'white')
+                .style('border', '0px')
+                .style('border-radius', '5px')
+                .style('pointer-events', 'none');
     }
-  
+    
     function updateChart(selected) {
         if (Object.keys(data).length === 0) {
             return;
@@ -95,11 +114,12 @@
         const y = d3.scaleLinear().range([height - margin.top - margin.bottom, 0]);
     
         const line = d3.line()
+            .defined(d => d.value != null) // Filter out invalid points
             .x(d => x(d.date))
             .y(d => y(d.value));
     
         const visibleData = formattedData.filter(d => selected[d.name]);
-        const allValues = visibleData.flatMap(d => d.values);
+        const allValues = visibleData.flatMap(d => d.values.filter(v => v.value != null));
     
         if (allValues.length > 0) {
             x.domain(d3.extent(allValues, d => d.date));
@@ -122,9 +142,28 @@
             .append('path')
             .attr('class', 'line')
             .attr('d', d => line(d.values))
-            .style('stroke-width', '2px')
+            .style('stroke-width', '2.5px')
             .style('stroke', d => colorScale(d.name))
-            .style('fill', 'none');
+            .style('fill', 'none')
+            .on('mouseover', function(event, d) {
+                tooltip.transition()
+                    .duration(200)
+                    .style('opacity', .9);
+                tooltip.html(`${d.name}`)
+                    .style('left', (event.pageX + 5) + 'px')
+                    .style('top', (event.pageY - 28) + 'px')
+                    .style('background', colorScale(d.name));
+            })
+            .on('mousemove', function(event) {
+                tooltip.style('left', (event.pageX + 5) + 'px')
+                    .style('top', (event.pageY - 28) + 'px')
+                    .style('background', colorScale(d.name));
+            })
+            .on('mouseout', function(d) {
+                tooltip.transition()
+                    .duration(500)
+                    .style('opacity', 0);
+            });
     }
 </script>
 
@@ -136,7 +175,7 @@
                 {#each Object.keys($selectedColumns) as column}
                     <label>
                         <input type="checkbox" bind:checked={$selectedColumns[column]} />
-                        <span class="checkbox"></span>
+                        <span class="checkbox" style="background-color: {$selectedColumns[column] ? columnColors[column] : ''};"></span>
                         {column}
                     </label>
                 {/each}

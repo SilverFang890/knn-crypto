@@ -7,6 +7,7 @@
     let threshold = 0.5;
     let bottom = 1;
 
+    import { base } from "$app/paths";
     import CoinGraphs from "./CoinGraphs.svelte";
 
 </script>
@@ -91,17 +92,17 @@
         </ol>
     </nav>
     <div slot="foreground">
-        <section style="height: 62vw;">
+        <section style="height: 63vw;">
             <h1>I. Classification With KNN</h1>
             <p>
                 When you hear a new song, you can deduce its genre from the genres of other similar songs you
                 know. Similarly KNN takes a new data point and classifies it by comparing it to the classes of 
                 <i>K</i> most similar data.
             </p>
-            <img src={"/images/simple_knn.png"} alt="simple knn example"/>
+            <img src="{base}/images/simple_knn.png" alt="simple knn example"/>
             <p>
-                I was preparing for a presentation on how machine learning and AI works when I decided 
-                to explain the KNN, K-Nearest-Neighbors, machine learning model. It's an interesting model
+                I have previously given a presentation on how machine learning and AI works where I chose to
+                explain the KNN, K-Nearest-Neighbors, machine learning model. It's an interesting model
                 that derives from the human neurological process of recognition and learning. I used a very 
                 simple visualizer I found online with 20 points of 2 classes differentiated by color. Although 
                 it did the job, it didn't visualize the true strength of machine learning, which is revealed 
@@ -109,20 +110,20 @@
             </p>
             <br>
             <p>
-                Equipped with visualization techniques from DSC 106 with Jard Wilber, I will be revisiting KNN
+                Equipped with new visualization techniques from DSC 106 with Jard Wilber, I will be revisiting KNN
                 and build a visualization on real cryptocurrency historical price data from the past year.
             </p>
         </section>
         <section style="height: 68vw;">
             <h1>II. Cryptocurrency Classes</h1>
             <p>
-                After the boom of cryptocurrency and rise of popularity of NFTs and Meme Stocks/ Meme Coins,
+                After the boom of cryptocurrency and rise in popularity of NFTs and Meme Stocks/ Meme Coins,
                 there is an ever increasing variety in unique crytocurrency categories. If you take a look
                 at CoinGecko's Top Crypto Categories, you can see a plethora of cryptocurrency classes.
             </p>
             <p>
-                Below is a graph representing historical price data of the <i>Layer 1</i>: Bitcoin, Ethereum, 
-                and the like – and <i>Meme</i>: infamous Dogecoin and ShibaInu, etc – classes of cryptocurrency.
+                Below is a graph representing historical price data of the <b>Layer 1</b>: <i>Bitcoin, Ethereum, 
+                etc</i> – and <b>Meme</b>: <i>the infamous Dogecoin, Shiba-Inu, etc</i> – classes of cryptocurrency.
             </p>
             <CoinGraphs />
             <p>
