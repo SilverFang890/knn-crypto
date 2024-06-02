@@ -7,7 +7,7 @@
     let threshold = 0.5;
     let bottom = 1;
 
-    import Simple_knn from "$lib/images/simple_knn.png";
+    import Simple_knn from "./images/simple_knn.png";
     import CoinGraphs from "./CoinGraphs.svelte";
 
 </script>
@@ -92,7 +92,7 @@
         </ol>
     </nav>
     <div slot="foreground">
-        <section style="height: 64vw;">
+        <section style="height: 62vw;">
             <h1>I. Classification With KNN</h1>
             <p>
                 When you hear a new song, you can deduce its genre from the genres of other similar songs you
