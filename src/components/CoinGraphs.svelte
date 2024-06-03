@@ -108,7 +108,7 @@
         }
 
         const svg = d3.select('#chart svg g');
-        svg.selectAll('.line').remove();
+        const t = svg.transition().duration(750);
     
         const x = d3.scaleTime().range([0, width - margin.left - margin.right]);
         const y = d3.scaleLinear().range([height - margin.top - margin.bottom, 0]);
@@ -131,20 +131,36 @@
 
         svg.select('.x-axis')
             .attr('transform', `translate(0,${height - margin.top - margin.bottom})`)
+            .transition(t)
             .call(d3.axisBottom(x));
 
         svg.select('.y-axis')
+            .transition(t)
             .call(d3.axisLeft(y));
     
-        svg.selectAll('.line')
-            .data(visibleData)
-            .enter()
+        const lines = svg.selectAll('.line')
+            .data(visibleData, d => d.name);
+
+        lines.exit()
+            .transition(t)
+            .attr('d', d => line([]))
+            .remove();
+    
+        lines.enter()
             .append('path')
             .attr('class', 'line')
             .attr('d', d => line(d.values))
             .style('stroke-width', '2.5px')
             .style('stroke', d => colorScale(d.name))
             .style('fill', 'none')
+            .merge(lines)
+            .transition(t)
+            .attr('d', d => line(d.values))
+            .style('stroke', d => colorScale(d.name))
+            .style('fill', 'none');
+
+        // Add tooltip interactions after merging
+        svg.selectAll('.line')
             .on('mouseover', function(event, d) {
                 tooltip.transition()
                     .duration(200)
@@ -172,10 +188,10 @@
     <div>
         {#if browser}
             <div id="select">
-                {#each Object.keys($selectedColumns) as column}
+                {#each Object.entries($selectedColumns) as [column, selected]}
                     <label>
                         <input type="checkbox" bind:checked={$selectedColumns[column]} />
-                        <span class="checkbox" style="background-color: {$selectedColumns[column] ? columnColors[column] : ''};"></span>
+                        <span class="checkbox" style="background-color: {selected ? columnColors[column] : '#ddd'};"></span>
                         {column}
                     </label>
                 {/each}
@@ -218,7 +234,7 @@
 
     .checkbox {
         position: absolute;
-        top: 3px;
+        top: 0.2vw;
         left: 0;
         height: 1.4vw;
         width: 1.4vw;
@@ -255,3 +271,4 @@
         transform: rotate(45deg);
     }
 </style>
+    
