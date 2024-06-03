@@ -92,7 +92,7 @@
         </ol>
     </nav>
     <div slot="foreground">
-        <section style="height: 63vw;">
+        <section>
             <h1>I. Classification With KNN</h1>
             <p>
                 When you hear a new song, you can deduce its genre from the genres of other similar songs you
@@ -113,13 +113,16 @@
                 Equipped with new visualization techniques from DSC 106 with Jard Wilber, I will be revisiting KNN
                 and build a visualization on real cryptocurrency historical price data from the past year.
             </p>
+            <br>
         </section>
-        <section style="height: 68vw;">
+        <section>
             <h1>II. Cryptocurrency Classes</h1>
             <p>
                 After the boom of cryptocurrency and rise in popularity of NFTs and Meme Stocks/ Meme Coins,
                 there is an ever increasing variety in unique crytocurrency categories. If you take a look
-                at CoinGecko's Top Crypto Categories, you can see a plethora of cryptocurrency classes.
+                at <a href="https://www.coingecko.com/en/categories" target="_blank" 
+                style="color: forestgreen; text-decoration: none;">CoinGecko's Top Crypto Categories</a>, 
+                you can see a plethora of cryptocurrency classes.
             </p>
             <p>
                 Below is a graph representing historical price data of the <b>Layer 1</b>: <i>Bitcoin, Ethereum, 
@@ -127,18 +130,30 @@
             </p>
             <CoinGraphs />
             <p>
-                Let's build a KNN classification model that can classify cryptocurrency as either <b>Layer 1</b>
-                or <b>Meme</b>.
+                Can you guess which category each of the coins belong to? Even with the help of the graph above, 
+                it's hard to tell what sets the categories apart. A KNN model would calculate the distance between
+                distinctive features of a coin and classify them based on their neighbors. Let's build a KNN 
+                classification model that will classify coins as either <b>Layer 1</b> or <b>Meme</b>.
             </p>
+            <br>
         </section>
-        <section>
+        <section style="height: 70vw;">
             <h1>III. KNN In Action</h1>
+            <p>
+                For simplicity, we'll be building our model using the <code>scikit-learn</code>
+                Python machine learning library on Jupyter Notebook. 
+            </p>
+            <br>
         </section>
-        <section>
+        <section style="height: 70vw;">
             <h1>IV. Model Tuning</h1>
+
+            <br>
         </section>
-        <section>
+        <section style="height: 70vw;">
             <h1>V. Demonstration</h1>
+
+            <br>
         </section>
     </div>
 </Scroller>
@@ -148,7 +163,8 @@
         height: 100vh;
         width: 22vw;
         padding: 1vh 1vw;
-        background-color: #ddfdfd;
+        /* background-color: #ddffff; */
+        background-color: #ADD3E7;
     }
 
     ol {
@@ -171,10 +187,10 @@
     }
 
     section {
-        height: 70vw;
+        height: fit-content;
         padding: 1.5vw;
         margin: 0 0 1vh 0;
-        outline: 2vh solid #ddfdfd;
+        outline: 2vh solid #ADD3E7;
     }
 
     h1 {
@@ -187,6 +203,13 @@
         text-indent: 2.5vw;
         font-size: 1.5vw;
         line-height: 2vw;
+    }
+
+    code {
+        font-size: 1.2vw;
+        background-color: #eee;
+        padding: 4px;
+        border-radius: 5px;
     }
 
     img {

@@ -18,7 +18,7 @@
     // Set initial dimensions
     let width;
     let height;
-    const margin = { top: 20, right: 0, bottom: 20, left: 40 };
+    const margin = { top: 0, right: 0, bottom: 40, left: 60 };
     let tooltip;
     
     if (browser) {
@@ -86,6 +86,22 @@
         svg.append('g').attr('class', 'x-axis').attr('transform', `translate(0,${height - margin.top - margin.bottom})`);
         svg.append('g').attr('class', 'y-axis');
 
+        svg.append('text')
+            .attr('class', 'x-axis-label')
+            .attr('text-anchor', 'end')
+            .attr('x', (width - margin.left - margin.right) / 2)
+            .attr('y', height - 5)
+            .text('Date');
+
+        svg.append('text')
+            .attr('class', 'y-axis-label')
+            .attr('text-anchor', 'end')
+            .attr('transform', 'rotate(-90)')
+            .attr('x', -((height - margin.top - margin.bottom) / 2))
+            .attr('y', -45)
+            .text('Price ($)');
+
+
         tooltip = d3.select('#chart')
             .append('div')
                 .attr('class', 'tooltip')
@@ -132,7 +148,7 @@
         svg.select('.x-axis')
             .attr('transform', `translate(0,${height - margin.top - margin.bottom})`)
             .transition(t)
-            .call(d3.axisBottom(x));
+            .call(d3.axisBottom(x).tickFormat(d3.timeFormat('%b')));
 
         svg.select('.y-axis')
             .transition(t)
@@ -168,12 +184,14 @@
                 tooltip.html(`${d.name}`)
                     .style('left', (event.pageX + 5) + 'px')
                     .style('top', (event.pageY - 28) + 'px')
-                    .style('background', colorScale(d.name));
+                    .style('background', colorScale(d.name))
+                    .style('z-index', 1);
             })
             .on('mousemove', function(event) {
                 tooltip.style('left', (event.pageX + 5) + 'px')
                     .style('top', (event.pageY - 28) + 'px')
-                    .style('background', colorScale(d.name));
+                    .style('background', colorScale(d.name))
+                    .style('z-index', 1);
             })
             .on('mouseout', function(d) {
                 tooltip.transition()
