@@ -153,6 +153,14 @@
         svg.select('.y-axis')
             .transition(t)
             .call(d3.axisLeft(y));
+
+        svg.select('.x-axis-label')
+            .attr('x', (width - margin.left - margin.right) / 2)
+            .attr('y', height - 5);
+
+        svg.select('.y-axis-label')
+            .attr('x', -((height - margin.top - margin.bottom) / 2))
+            .attr('y', -45);
     
         const lines = svg.selectAll('.line')
             .data(visibleData, d => d.name);

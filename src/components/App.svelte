@@ -8,7 +8,8 @@
     let bottom = 1;
 
     import { base } from "$app/paths";
-    import CoinGraphs from "./CoinGraphs.svelte";
+    import CoinGraph from "./CoinGraph.svelte";
+    import ClassifierNotebook from "./ClassifierNotebook.svelte";
 
 </script>
 
@@ -128,7 +129,7 @@
                 Below is a graph representing historical price data of the <b>Layer 1</b>: <i>Bitcoin, Ethereum, 
                 etc</i> – and <b>Meme</b>: <i>the infamous Dogecoin, Shiba-Inu, etc</i> – classes of cryptocurrency.
             </p>
-            <CoinGraphs />
+            <CoinGraph />
             <p>
                 Can you guess which category each of the coins belong to? Even with the help of the graph above, 
                 it's hard to tell what sets the categories apart. A KNN model would calculate the distance between
@@ -137,13 +138,14 @@
             </p>
             <br>
         </section>
-        <section style="height: 70vw;">
-            <h1>III. KNN In Action</h1>
+        <section>
+            <h1>III. Building the Model</h1>
             <p>
                 For simplicity, we'll be building our model using the <code>scikit-learn</code>
                 Python machine learning library on Jupyter Notebook. 
             </p>
             <br>
+            <ClassifierNotebook />
         </section>
         <section style="height: 70vw;">
             <h1>IV. Model Tuning</h1>
@@ -163,7 +165,6 @@
         height: 100vh;
         width: 22vw;
         padding: 1vh 1vw;
-        /* background-color: #ddffff; */
         background-color: #ADD3E7;
     }
 
