@@ -5,43 +5,56 @@
 		<link rel="icon" href="./knn.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<link href="./_app/immutable/assets/2.DDcITGTM.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.DeF9toLt.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/entry.DmnCYRn4.js">
+		<link href="./_app/immutable/assets/2.BwiB5-bv.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.CPfepSk-.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.h3BYS56i.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.BJd_Y3Fu.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/paths.Dh92Ei1i.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.DUuGChls.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.DStJQjCk.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.DaAnxKy0.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.oH25lF00.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/paths.CIwt2VHY.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.DDGG_ywa.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.BT7LZwOp.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.mCxHBBUM.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.CFTL4R5j.js"><title>Visualizing KNN</title><!-- HEAD_svelte-1h7t09d_START --><!-- HEAD_svelte-1h7t09d_END -->
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">   <svelte-scroller-outer class="svelte-xdbafy"><svelte-scroller-background-container class="background-container svelte-xdbafy" style="
+		<div style="display: contents">    <svelte-scroller-outer class="svelte-xdbafy"><svelte-scroller-background-container class="background-container svelte-xdbafy" style="
 		position: absolute;
 		top: 0;
 		transform: translate(0, 0px);
 		z-index: 1;
-	"><svelte-scroller-background class="svelte-xdbafy"><nav slot="background" class="svelte-fowuvl"><h1 style="font-size: 1.95vw;" class="svelte-fowuvl" data-svelte-h="svelte-icduqx">Visualizing Classification: <br> K-Nearest-Neighbors</h1> <progress value="0" style="width: 21vw; margin: 0 0.5vw;"></progress> <ol class="svelte-fowuvl"><li style="transform: translateY(-0vh); font-weight: 600; font-size: 1.6vw;" class="svelte-fowuvl">Classification With KNN</li> <li class="svelte-fowuvl" data-svelte-h="svelte-ndj512">Cryptocurrency Classes</li> <li class="svelte-fowuvl" data-svelte-h="svelte-1xiggdk">KNN in Action</li> <li class="svelte-fowuvl" data-svelte-h="svelte-9bpbta">Model Tuning</li> <li class="svelte-fowuvl" data-svelte-h="svelte-vhbwwh">Demonstration</li></ol></nav></svelte-scroller-background></svelte-scroller-background-container> <svelte-scroller-foreground class="svelte-xdbafy"><div slot="foreground" class="svelte-fowuvl"><section class="svelte-fowuvl" data-svelte-h="svelte-xz68mc"><h1 class="svelte-fowuvl">I. Classification With KNN</h1> <p class="svelte-fowuvl">When you hear a new song, you can deduce its genre from the genres of other similar songs you
-                know. Similarly KNN takes a new data point and classifies it by comparing it to the classes of 
-                <i>K</i> most similar data.</p> <img src="./images/simple_knn.png" alt="simple knn example" class="svelte-fowuvl"> <p class="svelte-fowuvl">I have previously given a presentation on how machine learning and AI works where I chose to
-                explain the KNN, K-Nearest-Neighbors, machine learning model. It&#39;s an interesting model
-                that derives from the human neurological process of recognition and learning. I used a very 
-                simple visualizer I found online with 20 points of 2 classes differentiated by color. Although 
-                it did the job, it didn&#39;t visualize the true strength of machine learning, which is revealed 
-                when applied on large datasets with nuanced associations.</p> <br> <p class="svelte-fowuvl">Equipped with new visualization techniques from DSC 106 with Jard Wilber, I will be revisiting KNN
-                and build a visualization on real cryptocurrency historical price data from the past year.</p> <br></section> <section class="svelte-fowuvl"><h1 class="svelte-fowuvl" data-svelte-h="svelte-1ack9ri">II. Cryptocurrency Classes</h1> <p class="svelte-fowuvl" data-svelte-h="svelte-1jd5vyi">After the boom of cryptocurrency and rise in popularity of NFTs and Meme Stocks/ Meme Coins,
-                there is an ever increasing variety in unique crytocurrency categories. If you take a look
-                at <a href="https://www.coingecko.com/en/categories" target="_blank" style="color: forestgreen; text-decoration: none;">CoinGecko&#39;s Top Crypto Categories</a>, 
-                you can see a plethora of cryptocurrency classes.</p> <p class="svelte-fowuvl" data-svelte-h="svelte-1dfisr">Below is a graph representing historical price data of the <b>Layer 1</b>: <i>Bitcoin, Ethereum, 
-                etc</i> – and <b>Meme</b>: <i>the infamous Dogecoin, Shiba-Inu, etc</i> – classes of cryptocurrency.</p> <div id="chart-container" class="svelte-1c3ylcz"><div id="chart" class="svelte-1c3ylcz"></div> <div></div> </div> <p class="svelte-fowuvl" data-svelte-h="svelte-komzel">Can you guess which category each of the coins belong to? Even with the help of the graph above, 
-                it&#39;s hard to tell what sets the categories apart. A KNN model would calculate the distance between
-                distinctive features of a coin and classify them based on their neighbors. Let&#39;s build a KNN 
-                classification model that will classify coins as either <b>Layer 1</b> or <b>Meme</b>.</p> <br></section> <section class="svelte-fowuvl"><h1 class="svelte-fowuvl" data-svelte-h="svelte-6e263h">III. Building the Model</h1> <p class="svelte-fowuvl" data-svelte-h="svelte-ff658q">For simplicity, we&#39;ll be building our model using the <code class="svelte-fowuvl">scikit-learn</code>
-                Python machine learning library on Jupyter Notebook.</p> <br> <p data-svelte-h="svelte-qdsr2u">Loading...</p></section> <section style="height: 70vw;" class="svelte-fowuvl" data-svelte-h="svelte-10tp6dy"><h1 class="svelte-fowuvl">IV. Model Tuning</h1> <br></section> <section style="height: 70vw;" class="svelte-fowuvl" data-svelte-h="svelte-vj8xg6"><h1 class="svelte-fowuvl">V. Demonstration</h1> <br></section></div></svelte-scroller-foreground> </svelte-scroller-outer> 
+	"><svelte-scroller-background class="svelte-xdbafy"><nav slot="background" class="svelte-mycakg"><h1 style="font-size: 1.95vw;" class="svelte-mycakg" data-svelte-h="svelte-icduqx">Visualizing Classification: <br> K-Nearest-Neighbors</h1> <progress value="0" style="width: 21vw; margin: 0 0.5vw;"></progress> <ol class="svelte-mycakg"><li style="transform: translateY(-0vh); font-weight: 600; font-size: 1.6vw;" class="svelte-mycakg">Classification With KNN</li> <li class="svelte-mycakg" data-svelte-h="svelte-ndj512">Cryptocurrency Classes</li> <li class="svelte-mycakg" data-svelte-h="svelte-fkwggu">Building the Model</li> <li class="svelte-mycakg" data-svelte-h="svelte-9bpbta">Model Tuning</li> <li class="svelte-mycakg" data-svelte-h="svelte-vhbwwh">Demonstration</li></ol></nav></svelte-scroller-background></svelte-scroller-background-container> <svelte-scroller-foreground class="svelte-xdbafy"><div slot="foreground" class="svelte-mycakg"><section class="svelte-mycakg" data-svelte-h="svelte-16w9xzr"><h1 class="svelte-mycakg">I. Classification With KNN</h1> <div class="section-content svelte-mycakg"><p class="svelte-mycakg">When you hear a new song, you can deduce its genre from the genres of other similar songs you
+                    know. Similarly KNN takes a new data point and classifies it by comparing it to the classes of 
+                    <i>K</i> most similar data.</p> <img src="./images/simple_knn.png" alt="simple knn example" class="svelte-mycakg"> <p class="svelte-mycakg">I have previously given a presentation on how machine learning and AI works where I chose to
+                    explain the KNN, K-Nearest-Neighbors, machine learning model. It&#39;s an interesting model
+                    that derives from the human neurological process of recognition and learning. I used a very 
+                    simple visualizer I found online with 20 points of 2 classes differentiated by color. Although 
+                    it did the job, it didn&#39;t visualize the true strength of machine learning, which is revealed 
+                    when applied on large datasets with nuanced associations.</p> <p class="svelte-mycakg">Equipped with new visualization techniques from DSC 106 with Jard Wilber, I will be revisiting KNN
+                    and build a visualization on real cryptocurrency historical price data from the past year.</p></div></section> <section class="svelte-mycakg"><h1 class="svelte-mycakg" data-svelte-h="svelte-1ack9ri">II. Cryptocurrency Classes</h1> <div class="section-content svelte-mycakg"><p class="svelte-mycakg" data-svelte-h="svelte-1talwcq">After the boom of cryptocurrency and rise in popularity of NFTs and Meme Stocks/ Meme Coins,
+                    there is an ever increasing variety in unique crytocurrency categories. If you take a look
+                    at <a href="https://www.coingecko.com/en/categories" target="_blank" style="color: forestgreen; text-decoration: none;">CoinGecko&#39;s Top Crypto Categories</a>, 
+                    you can see a plethora of cryptocurrency classes.</p> <p class="svelte-mycakg" data-svelte-h="svelte-1swuyuj">Below is a graph representing historical price data of the <b>Layer 1</b>: <i>Bitcoin, Ethereum, 
+                    etc</i> – and <b>Meme</b>: <i>the infamous Dogecoin, Shiba-Inu, etc</i> – classes of cryptocurrency.</p> <div id="chart-container" class="svelte-104kcsz"><div id="chart"></div> <div></div> </div> <p class="svelte-mycakg" data-svelte-h="svelte-1anyxml">Can you guess which category each of the coins belong to? Even with the help of the graph above, 
+                    it&#39;s hard to tell what sets the categories apart. A KNN model would calculate the distance between
+                    distinctive features of a coin and classify them based on their neighbors. Let&#39;s build a KNN 
+                    classification model that will classify coins as either <b>Layer 1</b> or <b>Meme</b>.</p></div></section> <section class="svelte-mycakg"><h1 class="svelte-mycakg" data-svelte-h="svelte-6e263h">III. Building the Model</h1> <div class="section-content svelte-mycakg"><p class="svelte-mycakg" data-svelte-h="svelte-c60web">For simplicity, we&#39;ll be building our model using the <code class="svelte-mycakg">scikit-learn</code> Python machine learning
+                    library on Jupyter Notebook. Building a prediction model can quickly get messy with the preprocessing,
+                    feature engineering, and training. We will streamline the process by building a model pipeline that&#39;ll
+                    take the raw data and complete all these steps at once.</p> <ul class="svelte-mycakg" data-svelte-h="svelte-1x2yits"><h4>Model Pipeline: Preprocessing</h4>
+                    To build an effective model, we must first preprocess the raw historical price data to ensure it&#39;s suitable 
+                    for analysis and model training. <br> <br> <li><b>Standardizing</b><br>
+                        One trait of our data is the large differences between the price range of coins 
+                        (think Bitcoin vs Dogecoin). This will heavily skew our data to make predictions based on the raw price 
+                        of the coins. While this might be helpful, there are many <b>meme</b> coins with higher prices than 
+                        <b>layer1</b> coins, and vice versa. In addition, standarized price data can be compared directly, which 
+                        give us the ability to anaylze price trends and patterns.</li> <br> <li><b>Engineering the <i>Relative Strength Index (RSI)</i> Feature</b><br>
+                        The Relative Strength Index (RSI) is a popular technical indicator used in financial analysis to measure 
+                        the speed and change of price movements. Including this as a feature in our model will create predictions
+                        based on not only instantaneous price points, but also the movement of it.</li></ul> <p class="svelte-mycakg" data-svelte-h="svelte-1ya6nlu">After the data is ready for analysis, the pipeline will lastly fit and train the KNN model. Take a look below
+                    to see how I built the model pipeline and how I implemented the custom preprocessor calculate RSI feature.</p> <p data-svelte-h="svelte-qdsr2u">Loading...</p></div></section> <section style="height: 70vw;" class="svelte-mycakg" data-svelte-h="svelte-16z0wep"><h1 class="svelte-mycakg">IV. Model Tuning</h1> <div class="section-content svelte-mycakg"></div></section> <section style="height: 70vw;" class="svelte-mycakg" data-svelte-h="svelte-410wr5"><h1 class="svelte-mycakg">V. Demonstration</h1> <div class="section-content svelte-mycakg"></div></section></div></svelte-scroller-foreground> </svelte-scroller-outer> 
 			
 			<script>
 				{
-					__sveltekit_ttdbtk = {
+					__sveltekit_9h7i0o = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/sveltekit-github-pages"
 					};
@@ -51,8 +64,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.DeF9toLt.js"),
-						import("./_app/immutable/entry/app.DUuGChls.js")
+						import("./_app/immutable/entry/start.CPfepSk-.js"),
+						import("./_app/immutable/entry/app.DDGG_ywa.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
