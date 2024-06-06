@@ -89,16 +89,12 @@
         svg.append('text')
             .attr('class', 'x-axis-label')
             .attr('text-anchor', 'end')
-            .attr('x', (width - margin.left - margin.right) / 2)
-            .attr('y', height - 5)
             .text('Date');
 
         svg.append('text')
             .attr('class', 'y-axis-label')
             .attr('text-anchor', 'end')
             .attr('transform', 'rotate(-90)')
-            .attr('x', -((height - margin.top - margin.bottom) / 2))
-            .attr('y', -45)
             .text('Price ($)');
 
 
@@ -156,11 +152,13 @@
 
         svg.select('.x-axis-label')
             .attr('x', (width - margin.left - margin.right) / 2)
-            .attr('y', height - 5);
+            .attr('y', height - 5)
+            .attr('font-size', '1.3vw');
 
         svg.select('.y-axis-label')
             .attr('x', -((height - margin.top - margin.bottom) / 2))
-            .attr('y', -45);
+            .attr('y',  -45)
+            .attr('font-size', '1.3vw');
     
         const lines = svg.selectAll('.line')
             .data(visibleData, d => d.name);
@@ -229,17 +227,14 @@
 <style>
     #chart-container {
         display: flex;
-    }
+        justify-content: space-between;
 
-    #chart {
-        margin: 1vw 4vw 1vw 5vw;
+        margin: 2vw -0.8vw 0;
     }
 
     #select {
         display: flex;
         flex-direction: column;
-
-        padding: 1.5vw 0;
     }
 
     label {

@@ -1,30 +1,30 @@
 <script>
     import { onMount } from 'svelte';
-    import { browser } from '$app/environment';
+    import { base } from "$app/paths";
     import axios from 'axios';
 
     let notebookHTML = '';
 
-    if (browser) {
-        onMount(async () => {
-        const response = await axios.get('/classifier_notebook.html');
+    onMount(async () => {
+        const response = await axios.get(`${base}/classifier_notebook.html`);
         notebookHTML = response.data;
-        });
-    }
+    });
 </script>
 
 {#if notebookHTML}
-    {#if browser}
-        <div class="notebook-container">
-            {@html notebookHTML}
-        </div>
-    {/if}
+    <div class="notebook-container">
+        {@html notebookHTML}
+    </div>
 {:else}
     <p>Loading...</p>
 {/if}
 
 <style>
     .notebook-container {
-        overflow-x: auto;
+        margin: 0 -6vw 0 -3vw;
+        padding: 1.5vw 1vw 1.5vw 0;
+        box-shadow: 0 0 1vw #ccc;
+
+        background-color: #fcfcfc;
     }
 </style>
