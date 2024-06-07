@@ -9,7 +9,7 @@
 
     import { base } from "$app/paths";
     import CoinGraph from "./CoinGraph.svelte";
-    import ClassifierNotebook from "./ClassifierNotebook.svelte";
+    import ClassifierNotebook from "./Notebook.svelte";
 
 </script>
 
@@ -175,9 +175,9 @@
                 </ul>
                 <p>
                     After the data is ready for analysis, the pipeline will lastly fit and train the KNN model. Take a look below
-                    to see how I built the model pipeline and how I implemented the custom preprocessor calculate RSI feature.
+                    to see how I built the model pipeline and how I implemented the custom preprocessor to calculate the RSI feature.
                 </p>
-                <ClassifierNotebook />
+                <ClassifierNotebook notebook='baseline_classifier.html'/>
             </div>
         </section>
         <section style="height: 70vw;">

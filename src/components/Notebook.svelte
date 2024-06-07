@@ -3,10 +3,12 @@
     import { base } from "$app/paths";
     import axios from 'axios';
 
+    export let notebook;
+
     let notebookHTML = '';
 
     onMount(async () => {
-        const response = await axios.get(`${base}/classifier_notebook.html`);
+        const response = await axios.get(`${base}/${notebook}`);
         notebookHTML = response.data;
     });
 </script>
