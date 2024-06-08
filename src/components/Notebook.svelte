@@ -23,9 +23,12 @@
 
 <style>
     .notebook-container {
-        margin: 0 -6vw 0 -3vw;
-        padding: 1.5vw 1vw 1.5vw 0;
-        box-shadow: 0 0 1vw #ccc;
+        height: 85vh;
+        overflow-y: scroll;
+
+        margin: 0 -5vw 0 -2vw;
+        padding: 1vw 1vw 1vw 0;
+        box-shadow: 0 0 1.5vw #ccc;
 
         background-color: #fcfcfc;
     }

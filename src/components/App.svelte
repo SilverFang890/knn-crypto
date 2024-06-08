@@ -180,10 +180,44 @@
                 <ClassifierNotebook notebook='baseline_classifier.html'/>
             </div>
         </section>
-        <section style="height: 70vw;">
+        <section>
             <h1>IV. Model Tuning</h1>
             <div class="section-content">
-
+                <p>
+                    Our baseline KNN classification model has an average accuracy of 80% when k-fold cross validation is performed.
+                    That's not bad at all, considering our baseline model has some limitations:
+                </p>
+                <ul>
+                    <li>
+                        <b>Dataset Size</b><br>
+                        Our dataset consists of only 20 coins, 10 of each <i>layer1</i> and <i>meme</i> coins, which our model trains
+                        with an even smaller subset of. This may cause our model to overfit our dataset and fail to generalize to the
+                        population of cryptocurrency in the <i>layer1</i> and <i>meme</i> categories. <br>
+                        <br>
+                        <span style="font-size: 1.3vw; font-style: italic;">
+                            (A consideration for this limitation is that CoinGecko's API restricts free users to only request the past
+                            365 days of price data with a limited amount of requests per month and per minute.)
+                        </span>
+                    </li>
+                    <br>
+                    <li>
+                        <b>Many Hyperparameters</b><br>
+                        A significant feature of the KNN model is the <b><i>K</i></b> hyperparameter. The model calculates a quantative distance
+                        between objects, in our case coins, and uses the <b><i>K</i></b> most similar coins to predict its category. Depending on
+                        the nature of the data, different values of <b><i>K</i></b> are most effective.<br>
+                        <br>
+                        Another hyperparameter is the <code>window</code> parameter that is used to create the RSI values. A shorter window
+                        would make the RSI more sensitive to sudden changes while a longer window would make the RSI more robust. In the 
+                        cryptocurrency market, prices tend to jump around very often in a short period of time. Our model can benefit from
+                        choosing an effective <code>window</code> value.
+                    </li>
+                </ul>
+                <p>
+                    To improve the baseline model, I will add 10 more coins to the dataset. In addition, we can use sklearn's <code>GridSearchCV</code> 
+                    to find the most effective combination of hyperparameters by simulating k-fold cross-validation on our model while repeatedly 
+                    refitting our model with different combinations of hyperparameters.
+                </p>
+                <ClassifierNotebook notebook='final_classifier.html'/>
             </div>
         </section>
         <section style="height: 70vw;">
@@ -251,7 +285,7 @@
 
     code {
         font-size: 1.2vw;
-        background-color: #eee;
+        background-color: #e4e4e4;
         padding: 4px;
         border-radius: 5px;
     }

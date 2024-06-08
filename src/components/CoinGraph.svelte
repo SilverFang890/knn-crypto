@@ -4,10 +4,12 @@
     import * as d3 from 'd3';
     import { onDestroy, onMount } from 'svelte';
     import { writable } from 'svelte/store';
-    import coin_data from './data/coin_data.json';
+    import graph_coins from './data/graph_coins.json';
+    import demo_coins from './data/demo_coins.json';
     import { browser } from '$app/environment';
     
-    let data = coin_data;
+    export let coin;
+    let data = graph_coins;
     let formattedData = [];
     const selectedColumns = writable({});
     const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
@@ -62,11 +64,11 @@
     function formatData() {
         formattedData = Object.keys(data).map(column => {
             return {
-            name: column,
-            values: Object.keys(data[column]).map(ms => ({
-                date: new Date(+ms),  // Convert milliseconds to Date object
-                value: data[column][ms]
-            }))
+                name: column,
+                values: Object.keys(data[column]).map(ms => ({
+                    date: new Date(+ms),  // Convert milliseconds to Date object
+                    value: data[column][ms]
+                }))
             };
         });
     }
@@ -227,21 +229,23 @@
 <style>
     #chart-container {
         display: flex;
-        justify-content: space-between;
 
-        margin: 2vw -0.8vw 0;
+        margin: 2vw -0.8vw 0 -2vw;
     }
 
     #select {
         display: flex;
         flex-direction: column;
+
+        margin-left: 2vw;
     }
 
     label {
         display: block;
         position: relative;
 
-        padding: 0.2vw 1.8vw;
+        width: 20vw;
+        padding: 0.2vw 0 0.2vw 1.8vw;
 
         font-size: 1.3vw;
     }
