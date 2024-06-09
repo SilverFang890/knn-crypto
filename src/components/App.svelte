@@ -84,16 +84,6 @@
                 Model Tuning
             </li>
             {/if}
-
-            {#if index == 4}
-            <li style="transform: translateY(-{offset*37}vh); font-weight: 600; font-size: 1.6vw;">
-                Demonstration
-            </li>
-            {:else}
-            <li>
-                Demonstration
-            </li>
-            {/if}
         </ol>
     </nav>
     <div slot="foreground">
@@ -218,12 +208,6 @@
                     refitting our model with different combinations of hyperparameters.
                 </p>
                 <ClassifierNotebook notebook='final_classifier.html'/>
-            </div>
-        </section>
-        <section style="height: 70vw;">
-            <h1>V. Demonstration</h1>
-            <div class="section-content">
-
             </div>
         </section>
     </div>

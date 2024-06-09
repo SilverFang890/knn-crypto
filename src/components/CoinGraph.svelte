@@ -8,7 +8,7 @@
     import demo_coins from './data/demo_coins.json';
     import { browser } from '$app/environment';
     
-    export let coin;
+    
     let data = graph_coins;
     let formattedData = [];
     const selectedColumns = writable({});
